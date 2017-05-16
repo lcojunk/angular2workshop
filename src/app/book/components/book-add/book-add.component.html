@@ -1,0 +1,55 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  
+  ISBN:
+  <input
+    type="text"
+    style='width:500px'
+    formControlName="isbn"
+    [(ngModel)]="book.isbn">
+  <br>
+  <div [hidden]="!(form.get('isbn').hasError('required') && form.get('isbn').touched)">
+    ISBN is required
+  </div>
+    <div [hidden]="!(form.get('isbn').hasError('minlength') && form.get('isbn').touched)">
+    ISBN is too short
+  </div>
+  Title:  
+  <input
+    type="text"
+    style='width:500px'
+    formControlName="title" 
+   [(ngModel)]="book.title"
+    >
+  <div [hidden]="!(form.get('title').hasError('required') && form.get('title').touched)">
+    Title is required
+  </div>
+
+  <br>
+  <!--
+  Subtitle:
+  <input
+    type="text"
+    style='width:500px'
+    [(ngModel)]="book.subtitle" 
+    name="subtitle">
+  <br>
+  Author: 
+  <input
+    type="text"
+    style='width:500px'
+    [(ngModel)]="book.author" 
+    name="author">
+  <div [hidden]="!author.errors?.required || author.pristine">
+    Author is required
+  </div>
+  <br>
+  
+
+<pre>{{form.value|json}}</pre>
+{{form.valid}}
+-->
+<button type="submit" [disabled]="!canSubmit()"> Save</button>
+</form>
+
+<div *ngIf="message" style="color: green"> {{message}}</div>
+<div *ngIf="error" style="color: red"> {{message}}</div>

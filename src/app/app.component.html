@@ -1,0 +1,9 @@
+<h1>
+  {{title}}
+</h1>
+<info-box></info-box>
+<mouse-cursor></mouse-cursor>
+<title-box [title]="title"></title-box>
+<title-box (titleClicked)="clicked($event)" title="foo"></title-box>
+<!--<book-list></book-list>-->
+<router-outlet></router-outlet>

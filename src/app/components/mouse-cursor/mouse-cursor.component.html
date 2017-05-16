@@ -1,0 +1,10 @@
+<div
+  tooltip="Coordinates: x:{{x}} y:{{y}}"
+  (mousemove)="onMousemove($event)"
+    style="height: 50px; width: 200px; border: 1px solid">
+    <h1><font color='#ff{{x*1000+y}}'>ff{{x*1000+y}}</font></h1>
+</div>
+<p>x:{{x}} y:{{y}}</p>
+<!--
+<div tooltip="Coordinates: x:{{x}} y:{{y}}">Tooltip directive </div>
+-->

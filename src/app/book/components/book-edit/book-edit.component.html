@@ -1,0 +1,58 @@
+<form *ngIf="book" #form="ngForm">
+  ISBN:
+  <input
+    type="text"
+    style='width:500px'
+    [(ngModel)]="book.isbn" 
+    name="isbn"
+    required
+    #isbn="ngModel">
+  <div [hidden]="!isbn.errors?.required || isbn.pristine">
+    ISBN is required
+  </div>
+  <br>
+  Title:  
+  <input
+    type="text"
+    style='width:500px'
+    [(ngModel)]="book.title" 
+    name="title"
+    required
+    #title="ngModel">
+  <div [hidden]="!title.errors?.required || title.pristine">
+    Title is required
+  </div>
+  <br>
+  Subtitle:
+  <input
+    type="text"
+    style='width:500px'
+    [(ngModel)]="book.subtitle" 
+    name="subtitle"
+    required
+    #subtitle="ngModel">
+  <div [hidden]="!subtitle.errors?.required || subtitle.pristine">
+    Subtitle is required
+  </div>
+  <br>
+  Author: 
+  <input
+    type="text"
+    style='width:500px'
+    [(ngModel)]="book.author" 
+    name="author"
+    required
+    #author="ngModel">
+  <div [hidden]="!author.errors?.required || author.pristine">
+    Author is required
+  </div>
+  <br>
+  
+<button type="submit" [disabled]="!form.valid" (click)=save()> Save</button>
+<button type="submit" [disabled]="!form.valid" (ngSubmit)="saveBook(form.value)"> Save Form</button>
+<pre>{{form.value|json}}</pre>
+{{form.valid}}
+</form>
+
+<div *ngIf="message" style="color: green"> {{message}}</div>
+<div *ngIf="error" style="color: red"> {{message}}</div>

@@ -1,0 +1,10 @@
+
+<div *ngIf="isbn">
+  <!--<a [routerLink]="['/books', book.isbn]"><a>-->
+isbn={{isbn}}
+</div>
+<div *ngIf="book">
+  {{book.title}}
+</div>
+<a [routerLink]="['edit']">edit book</a>
+<div><a href="/books">back</a></div>
