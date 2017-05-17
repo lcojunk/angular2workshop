@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"> Mouse In The Box</h3>
+        </div>
+        <div class="panel-body">
+          <div class="text-center">
+            <h1> Mouse in the box example </h1>            
+          </div>          
+          <div class="text-left">
+            <p> Please move mouse inside the box. Until mouse is there, its coordinates are being measured. The output can be seen in console and on the site</p>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="well"
+                tooltip="Coordinates: x:{{x}} y:{{y}}"
+                (mousemove)="onMousemove($event)"
+                style="border: 1px solid">
+                <font color='#ff{{y*1000+x}}'>Mouse is at x:{{x}} y:{{y}}. Color = #ff{{y*1000+x}}</font>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="panel-footer text-left">Copyrights: Free to use</div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<!--
+<div
+  tooltip="Coordinates: x:{{x}} y:{{y}}"
+  (mousemove)="onMousemove($event)"
+    style="height: 50px; width: 200px; border: 1px solid">
+    <h1><font color='#ff{{x*1000+y}}'>ff{{x*1000+y}}</font></h1>
+</div>
+-->

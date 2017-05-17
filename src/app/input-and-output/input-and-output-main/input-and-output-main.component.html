@@ -1,0 +1,61 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"> @Input and @Output</h3>
+        </div>
+        <div class="panel-body">
+          <div class="text-center">
+            <h1> @Input and @Output examples </h1>            
+          </div>          
+          <div class="text-left">
+            <p> This module show how can be used @Input and @Output in Angular 2/4</p>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h5 class="panel-title"> Example 1</h5>
+                    </div>
+                    <div class="panel-body">
+                        <div class="well">
+                            <title-box [title]="title"></title-box>
+                        </div>
+                        <p> This directive has not output. Input is defined in as [title]="title" in title-box-tag </p>
+                    </div>
+                </div>                
+            </div>
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h5 class="panel-title"> Example 2</h5>
+                    </div>
+                    <div class="panel-body">
+                        <div class="well">
+                            <title-box (titleClicked)="clicked($event)" title="This is title box component"></title-box>
+                        </div>
+                        <p> This directive has input and output. Input is defined in as title="foo" in title-box-tag. Output is defined as event. To use this event, one should click on a component </p>        
+                    </div>
+                </div>                
+            </div>
+          </div>
+
+        </div>
+        <div class="panel-footer text-left">Copyrights: Free to use</div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
