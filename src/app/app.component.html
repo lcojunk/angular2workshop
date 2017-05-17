@@ -1,16 +1,27 @@
-<h1>
-  {{title}}
-</h1>
 
-<ul class="nav nav-tabs">
-  <li role="presentation" ><a href="/">Home</a></li>
-  <li role="presentation"><a href="/hide-n-show">Hide and Show</a></li>
-  <li role="presentation"><a href="/books">Books app</a></li>
-</ul>
-
-<info-box></info-box>
-<mouse-cursor></mouse-cursor>
-<title-box [title]="title"></title-box>
-<title-box (titleClicked)="clicked($event)" title="foo"></title-box>
-<!--<book-list></book-list>-->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-header">
+        <h3 class="text-left">
+          <p>{{title}}</p>
+          <p><small>{{subtitle}}</small></p> 
+        </h3>
+      </div>      
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <ul class="nav nav-tabs">
+        <li role="presentation" ><a href="/">Home</a></li>
+        <li role="presentation"><a href="/hide-n-show">Hide and Show</a></li>
+        <li role="presentation"><a href="/mouse-in-the-box">Mouse in the box</a></li>
+        <li role="presentation"><a href="/input-and-output">@Input and @Output</a></li>
+        <li role="presentation"><a href="/books">Books App</a></li>        
+      </ul>
+    </div>
+  </div>
+</div>
 <router-outlet></router-outlet>
