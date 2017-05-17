@@ -11,6 +11,7 @@ import { TitleBoxComponent } from './components/title-box/title-box.component';
 
 import { routing } from "./app.routing";
 import { TooltipDirective } from './shared/tooltip.directive';
+import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 
 //import { BookModule } from "app/book/book.module";
 
@@ -20,7 +21,8 @@ import { TooltipDirective } from './shared/tooltip.directive';
     InfoBoxComponent,
     MouseCursorComponent,
     TitleBoxComponent,
-    TooltipDirective
+    TooltipDirective,
+    WelcomePageComponent
   ],
   imports: [
     BrowserModule,
