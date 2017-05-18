@@ -14,6 +14,7 @@ export class BookDetailComponent implements OnInit {
   isbn:string;
   book:Book;
   error:string;
+  success:string;
 
   constructor(private route: ActivatedRoute, private bookData:BookDataService) { }
 
@@ -22,12 +23,29 @@ export class BookDetailComponent implements OnInit {
       this.isbn=params.isbn;
       if(this.isbn){
         this.bookData.getBook(this.isbn).subscribe(
-          successFn=>this.book=successFn,
-          errorFn=>this.error=errorFn
+          successFn=>this.setBook(successFn),
+          errorFn=>this.setError('Book was not loaded. Error: '+errorFn)
         );
-      }
-      
+      }      
     })
   }
+
+  public setBook(book:Book):void{
+    console.log(book);
+    this.book=book;
+    this.setSuccess('book was loaded succesfully');
+  }
+
+  public setError(error:string) {
+    this.success=null;
+    this.error=error;
+  }
+
+  public setSuccess(success:string){
+    this.success=success;
+    this.error=null;
+  }
+
+
 
 }

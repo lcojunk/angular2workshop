@@ -1,43 +1,64 @@
-<a [routerLink]="['add']">add new book</a>
+<div class="panel panel-default">
 
-<div class="rowBorder">
-<h2> Output without pipes </h2>
-<table style="width:100%">
-  <tr >
-    <th> <h3>Title </h3></th>
-    <th> <h3>Subtitle</h3></th> 
-    <th> <h3>Author</h3></th>
-    <th> <h3>isbn</h3></th>
-  </tr>
-  <tr  *ngFor="let book of allBooks()">
-    <td> {{book.title}}</td>
-    <td> {{book.subtitle}}</td> 
-    <td> {{book.author}}</td>
-    <td> <a [routerLink]="['/books', book.isbn]">{{book.isbn}}</a></td>
-  </tr>
-</table>
-<div *ngIf="successmessage; else errormessage">
- <h3> {{successmessage}}</h3>
+  <div class="panel-heading">
+    <h3 class="panel-title">Output without pipes</h3>
+  </div>
+
+  <div class="panel-body">
+    <table class="table table-striped table-responsive">
+      <tr>
+        <th> <h3>ISBN</h3></th>        
+        <th> <h3>Title </h3></th>
+        <th> <h3>Subtitle</h3></th> 
+        <th> <h3>Author</h3></th>
+      </tr>
+      <tr>
+        <th> <a [routerLink]="['add']"> <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add new book </a> </th>        
+        <th></th>
+        <th></th> 
+        <th></th>
+      </tr>
+      <tr  *ngFor="let book of allBooks()">
+        <td> <a [routerLink]="['/books', book.isbn]">{{book.isbn}}</a></td>
+        <td> {{book.title}}</td>
+        <td> {{book.subtitle}}</td> 
+        <td> {{book.author}}</td>
+      </tr>
+    </table>
+    <div *ngIf="successmessage; else errormessage"  class="alert alert-success" role="alert" >{{successmessage}}</div>
+    <ng-template #errormessage>
+      <div class="alert alert-danger" role="alert"> {{error}}</div>
+    </ng-template>    
+  </div>
 </div>
-<ng-template #errormessage>
-   <h3> {{error}}</h3>
-</ng-template>
-</div>
-<div class="rowBorder">
-<h2> Output with pipes </h2>
-<table style="width:100%">
-  <tr class="rowBorder">
-    <th> <h3>Title </h3></th>
-    <th> <h3>Subtitle</h3></th> 
-    <th> <h3>Author</h3></th>
-    <th> <h3>isbn</h3></th>
-  </tr>
-  <tr  *ngFor="let book of booksObservable | async">    
-    <td> {{book.title}}</td>
-    <td> {{book.subtitle}}</td> 
-    <td> {{book.author}}</td>
-    <td> <a [routerLink]="['/books', book.isbn]">{{book.isbn}}</a></td>
-  </tr>
-</table>
+
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+    <h3 class="panel-title">Output with pipes</h3>
+  </div>
+
+  <div class="panel-body">
+    <table class="table table-striped table-responsive">
+    <tr>
+      <th> <h3>ISBN</h3></th>
+      <th> <h3>Title </h3></th>
+      <th> <h3>Subtitle</h3></th> 
+      <th> <h3>Author</h3></th>
+    </tr>
+    <tr>
+      <th> <a [routerLink]="['add']"> <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add new book </a> </th>        
+      <th></th>
+      <th></th> 
+      <th></th>
+    </tr>
+    <tr  *ngFor="let book of booksObservable | async">    
+      <td> <a [routerLink]="['/books', book.isbn]">{{book.isbn}}</a></td>
+      <td> {{book.title}}</td>
+      <td> {{book.subtitle}}</td> 
+      <td> {{book.author}}</td>
+    </tr>
+    </table>
+  </div>
 
 </div>

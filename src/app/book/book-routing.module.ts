@@ -11,10 +11,10 @@ const routes: Routes = [{
   path: '',
   component: BookComponent,
   children: [
-    { path: '', component: BookListComponent, canDeactivate:[ConfirmCandeactivateGuard]},
+    { path: '', component: BookListComponent},
     { path: 'add', component: BookAddComponent }, //should be over :isbn!!!
     { path: ':isbn', component: BookDetailComponent },
-    { path: ':isbn/edit', component: BookEditComponent },
+    { path: ':isbn/edit', component: BookEditComponent, canDeactivate:[ConfirmCandeactivateGuard] },
     { path: '**',  redirectTo: '/books'/* redirect to default */ //component: BookListComponent /* page not found component */
     }    
   ]

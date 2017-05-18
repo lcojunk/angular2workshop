@@ -1,10 +1,50 @@
+<div *ngIf="book" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <a href="/books"> <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back to booklist</a>
+      <a [routerLink]="['edit']"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit this book</a>      
+    </div>
+  </div>
+  <br><br>
+  <div class="row">
+    <div *ngIf="book.isbn" class="col-sm-6">
+      <strong> ISBN: </strong> {{book.isbn}}
+    </div>
+    <div *ngIf="book.numPages" class="col-sm-6">
+      <p class="text-right"> <strong> Pages: </strong> {{book.numPages}} <p>
+    </div>
+  </div>
 
-<div *ngIf="isbn">
-  <!--<a [routerLink]="['/books', book.isbn]"><a>-->
-isbn={{isbn}}
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 *ngIf="book.title">{{book.title}}</h1>
+      <h4 *ngIf="book.subtitle"><i> {{book.subtitle}}</i> </h4>
+    </div>
+  </div>
+  
+  <div *ngIf="book.author" class="row">
+    <div class="col-sm-12">
+      <h4><strong> From: </strong> {{book.author}}</h4>
+    </div>
+  </div>
+
+  <div *ngIf="book.abstract" class="well"> 
+    <i>{{book.abstract}}</i>
+  </div>
+ 
+  <div *ngIf="book.publisher" class="row">
+    <div class="col-sm-12">
+      <h4>         
+        <strong> Publisher: </strong> 
+        <a *ngIf="book.publisher.url" href='{{book.publisher.url}}'>
+          <span *ngIf="book.publisher.name"> {{book.publisher.name}} </span>
+        </a>
+        <span *ngIf="book.publisher.name && (!book.publisher.url)">{{book.publisher.name}}</span>
+      </h4>
+    </div>
+  </div>
+
 </div>
-<div *ngIf="book">
-  {{book.title}}
-</div>
-<a [routerLink]="['edit']">edit book</a>
-<div><a href="/books">back</a></div>
+
+
+

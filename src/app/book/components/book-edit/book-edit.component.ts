@@ -28,7 +28,7 @@ export class BookEditComponent implements OnInit {
   @Input() book:Book;
   isbn:string;
   error:string;
-  message:string;
+  success:string;
   ngOnInit() {
    // this.book=bookMock;
     this.route.params.subscribe((params)=>{     
@@ -36,26 +36,38 @@ export class BookEditComponent implements OnInit {
        console.log(this.isbn);
       if(this.isbn){
         this.bookData.getBook(this.isbn).subscribe(
-          successFn=>{
-            this.book=successFn;
-            this.message='loaded'
-          },
-          errorFn=>this.error=errorFn
+          successFn=>this.setBook(successFn),
+          errorFn=>this.setError(errorFn)
         );
       }
       
     })    
   }
 
+  public setBook(book:Book):void{
+    console.log(book);
+    this.book=book;
+    this.setSuccess('Book was loaded succesfully');
+  }
+
   public save():void{
-    this.message='saved';
-    this.error=null;
+    this.setSuccess('Book saved successfully using save() function')
     console.log(this.book);
   }
   public saveBook(abook:Book){
-        this.message='saved';
-    this.error=null;
+    this.setSuccess('Book saved successfully using saveBook() function');
     console.log(abook);
   }
+
+  public setError(error:string) {
+    this.success=null;
+    this.error=error;
+  }
+
+  public setSuccess(success:string){
+    this.success=success;
+    this.error=null;
+  }
+
 
 }
